@@ -1,0 +1,209 @@
+
+body, html{
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    height: 100%;
+    font: normal 13px 'Open Sans', sans-serif;
+    -webkit-text-size-adjust: 100%;
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
+    background: #fff;
+}
+
+.first-form_background{
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    background: #f3f3f3;
+}
+
+.first-form form{
+    position: absolute;
+    z-index: 2;
+    width: 450px;
+    height: 300px;
+    left: 50%;
+    top: 50%;
+    margin-top: -150px;
+    margin-left: -200px;
+    background: #fff
+}
+
+
+.first-form input{
+    font-size: 15px;
+    color: #000000;
+    padding-left: 10px;
+    width: 310px;
+    height: 44px;
+    border: 1px solid #bdbdbd;
+    margin: 32px auto 32px;
+    display: block;
+    outline: none;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+.btn {
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+    color: inherit;
+    cursor: pointer;
+    padding: 18px 60px;
+    display: block;
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    background: #17aa56;
+    color: #fff;
+    box-shadow: 0 6px #119e4d;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+}
+.btn-2c {
+    border-radius: 5px;
+}
+
+.btn-2c:hover {
+    box-shadow: 0 4px #119e4d;
+    top: 2px;
+}
+
+.btn-2c:active {
+    box-shadow: 0 0 #119e4d;
+    top: 6px;
+}
+
+.first-form{
+    display:none;
+}
+
+.first-form_p{
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+    margin: 49px 0 0;
+}
+
+.photo-layer{
+    background: #0f3774;
+    background: -webkit-gradient(left top, right top, color-stop(0%, #0f3774), color-stop(32%, #0f3774), color-stop(100%, #4393d9));
+    background: -webkit-linear-gradient(left, #0f3774 0%, #0f3774 32%, #4393d9 100%);
+    background: linear-gradient(to right, #0f3774 0%, #0f3774 32%, #4393d9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0f3774', endColorstr='#4393d9', GradientType=1 );
+    overflow: hidden;
+    height: 500px;
+    width:100%;
+}
+
+.photo-layer_usernameData_image{
+    width: 152px;
+    height: 152px;
+    border-radius: 85px;
+    background: #f3f3f3;
+    margin: 100px auto 0;
+}
+
+.photo-layer_usernameData_name{
+    color: #fff;
+    font-weight: 700;
+    font-size: 50px;
+    text-align: center;
+}
+.photo-layer_usernameData_name p{
+    margin-bottom:0
+}
+.photo-layer_usernameData_description{
+    color: #fff;
+    font-size: 23px;
+    text-align: center;
+    margin: 10px;
+}
+
+.photos-container{
+    max-width: 1024px;
+    margin: 30px auto 0;
+}
+
+.photos-container_row{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    flex-direction: row;
+
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    align-items: center;
+}
+
+
+.photos-container_row_link{
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    box-sizing: content-box;
+}
+
+
+.photos-container_item img{
+    margin: auto;
+    width: 100%;
+    max-height:100%
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background: #f3f3f3;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding: 15px;
+    color: #003569;
+}
+
+@media (max-width: 735px) {
+    .photo-layer{
+        height: 300px;
+    }
+    .photo-layer_usernameData_name{
+        font-size: 21px
+    }
+    .photo-layer_usernameData_description{
+        font-size: 15px;
+    }
+    .photo-layer_usernameData_image{
+        margin: 50px auto 0;
+    }
+}
