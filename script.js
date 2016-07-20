@@ -10,8 +10,7 @@ $(document).ready(function(){
             // Base currency (USD) is `json.base`
             // UNIX Timestamp when rates were collected is in `json.timestamp`
 
-            rates = json.rates;
-            base = json.base;
+            rates = json;
             console.log(rates);
         }
     });
