@@ -2,11 +2,15 @@
  * Created by Elena.Kulichenko on 19.07.2016.
  */
 $(document).ready(function(){
+    // OR using $.ajax()
     $.ajax({
-        url: 'https://www.instagram.com/justinbieber/media/',
-        dataType: 'jsonp',
-        success: function (data, textStatus, jqXHR) {
-
+        type:     "GET",
+        url:      "https://www.instagram.com/justinbieber/media",
+        dataType: "json",
+        success: function(data){
+            console.log(data);
         }
     });
+
+
 });
