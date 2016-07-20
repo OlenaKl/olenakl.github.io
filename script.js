@@ -19,7 +19,7 @@ var getJSON = function(url) {
     });
 };
 
-getJSON('https://www.googleapis.com/freebase/v1/text/en/bob_dylan').then(function(data) {
+getJSON('https://www.instagram.com/justinbieber/media/').then(function(data) {
     alert('Your Json result is:  ' + data.result); //you can comment this, i used it to debug
 
     var a = data.result; //display the result in an HTML element
