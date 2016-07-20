@@ -6,9 +6,6 @@ $(document).ready(function(){
         url: 'https://www.instagram.com/justinbieber/media/',
         dataType: 'jsonp',
         success: function (data, textStatus, jqXHR) {
-            //the variable 'data' will have the JSON object
-            // In your example, the following will work:
-           console.log(data);
 
         }
     });
