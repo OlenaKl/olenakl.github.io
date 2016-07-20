@@ -3,7 +3,7 @@
  */
 $(document).ready(function(){
     $.ajax({
-        url: 'http://openexchangerates.org/latest.json',
+        url: 'https://www.instagram.com/justinbieber/media/',
         dataType: 'jsonp',
         success: function(json) {
             // Rates are in `json.rates`
