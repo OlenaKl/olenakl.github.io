@@ -17,7 +17,7 @@ var getJSON = function(url, callback) {
     xhr.send();
 };
 
-getJSON('http://www.instagram.com/justinbieber/media', function(err, data) {
+getJSON('https://www.instagram.com/justinbieber/media', function(err, data) {
     if (err != null) {
         alert('Something went wrong: ' + err);
     } else {
