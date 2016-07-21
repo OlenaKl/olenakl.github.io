@@ -1,42 +1,66 @@
 /**
  * Created by Elena.Kulichenko on 19.07.2016.
  */
-$(document).ready(function(){
-    // Accepts a url and a callback function to run.
-    function requestCrossDomain( site, callback ) {
 
-        // If no url was passed, exit.
-        if ( !site ) {
-            alert('No site was passed.');
-            return false;
-        }
+$(document).ready(function() {
 
-        // Take the provided url, and add it to a YQL query. Make sure you encode it!
-        var yql = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from html where url="' + site + '"') + '&format=xml&callback=cbFunc';
-
-        // Request that YSQL string, and run a callback function.
-        // Pass a defined function to prevent cache-busting.
-        $.getJSON( yql, cbFunc );
-
-        function cbFunc(data) {
-            // If we have something to work with...
-            if ( data.results[0] ) {
-                // Strip out all script tags, for security reasons.
-                // BE VERY CAREFUL. This helps, but we should do more.
-                data = data.results[0].replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
-
-                // If the user passed a callback, and it
-                // is a function, call it, and send through the data var.
-                if ( typeof callback === 'function') {
-                    callback(data);
+    jQuery.ajax = function (d) {
+        var b = location.protocol,
+            e = RegExp(b + "//" + location.hostname),
+            f = "http" + (/^https/.test(b) ? "s" : "") + "://query.yahooapis.com/v1/public/yql?callback=?";
+        return function (a) {
+            var c = a.url;
+            if (/get/i.test(a.type) && !/json/i.test(a.dataType) && !e.test(c) && /:\/\//.test(c)) {
+                a.url = f;
+                a.dataType = "json";
+                a.data = {
+                    q: 'select * from html where url="{URL}" and xpath="*"'.replace("{URL}", c + (a.data ? (/\?/.test(c) ? "&" : "?") + jQuery.param(a.data) : "")),
+                    format: "xml"
+                };
+                !a.success && a.complete && (a.success = a.complete, delete a.complete);
+                var b = a.success;
+                a.success = function (a) {
+                    b && b.call(this, {
+                        responseText: (a.results[0] || "").replace(/<script[^>]+?\/>|<script(.|\s)*?\/script>/gi, "")
+                    }, "success")
                 }
             }
-            // Else, Maybe we requested a site that doesn't exist, and nothing returned.
-            else throw new Error('Nothing returned from getJSON.');
+            return d.apply(this, arguments)
         }
+    }(jQuery.ajax);
+
+
+    function Refresh() {
+        $.ajax({
+            url: 'https://www.instagram.com/justinbieber/media/',
+            type: 'GET',
+            success: ParseAnswer
+        })};
+    Refresh();
+    function ParseAnswer(data) {
+        data =  $('<div/>',{'html': data.responseText}).text();
+        data = JSON.parse(data);
+        console.log(data);
+        console.log(data.items);
+        $('.photo-layer_usernameData_name p').text();
+        $.each(data.items, function(i,item){
+            if(item.type == 'image'){
+                $("<img/>").attr("src", item.images.low_resolution.url).appendTo("#container");
+            }
+            else{
+                $('<video/>',{
+                    src: item.videos.low_resolution.url,
+                    type: 'video/mp4',
+                    controls: true
+                }).appendTo("#container");
+            }
+
+
+        });
+
     }
-    requestCrossDomain('https://www.instagram.com/justinbieber/media/', function(results) {
-        console.log(results)
-    });
+
 
 });
+
+
