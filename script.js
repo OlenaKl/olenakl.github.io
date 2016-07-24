@@ -74,7 +74,10 @@ function Refresh(max_id) {
              url: url,
              type: 'GET',
              success: 
-                ParseAnswer
+                function{
+                    ParseAnswer,
+                    modalShow
+                }
              
 })};
 
@@ -139,7 +142,6 @@ function ParseAnswer(data) {
         data.more_available == true ? Refresh(lastItem) : $(this).text('No photos!').addClass('shake'); 
     });
     hover();
-    modalShow();
 
 };
 
@@ -149,9 +151,7 @@ function refreshNew(data) {
     var firstItem = data.items[0].id;
     var imgHolder = '<div href="" class="photos-container_row_link"></div>';
     var photoInfo = '<div class="photo_info"></div>';
-    console.log(firstItem);
     var oldFirstItem = $('.photos-container_row_link:first-of-type').attr('data-id');
-    console.log(oldFirstItem);
     if(firstItem != oldFirstItem){
          if(data.items[0].type == 'image'){
             $("<img/>").attr({"src": data.items[0].images.thumbnail.url,
@@ -173,7 +173,7 @@ function refreshNew(data) {
     hover();
 };
 
-function modalShow(){
+function modalShow(data){
      $('.photo_info').click( function(event){ 
          event.preventDefault(); 
          $('.overlay').fadeIn(400, 
