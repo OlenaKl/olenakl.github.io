@@ -174,7 +174,7 @@ function refreshNew(data) {
 function modalShow(){
      $('.photo_info').click( function(event){ 
          event.preventDefault(); 
-         $('.overlay').fadeIn(400, 
+         $('.overlay').fadeIn(100, 
              function(){ 
                  $('.modal_form') 
                      .css('display', 'block') 
@@ -193,10 +193,10 @@ function modalShow(){
     
      $('.modal_close, .overlay').click( function(){ 
          $('.modal_form')
-             .animate({opacity: 0, top: '45%'}, 200,  
+             .animate({opacity: 0, top: '45%'}, 100,  
                  function(){ 
                      $(this).css('display', 'none'); 
-                     $('.overlay').fadeOut(400); 
+                     $('.overlay').fadeOut(300); 
                  }
              );
         $('.modal_form img').attr('src', '');
