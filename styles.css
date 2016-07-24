@@ -15,7 +15,7 @@ body, html{
 }
 
 .first-form_background{
-    width: 110%;
+    width: 100%;
     min-height: 100%;
     position: absolute;
     background: #f3f3f3;
