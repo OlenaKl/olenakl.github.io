@@ -74,10 +74,7 @@ function Refresh(max_id) {
              url: url,
              type: 'GET',
              success: 
-                function{
-                    ParseAnswer,
-                    modalShow
-                }
+                    ParseAnswer
              
 })};
 
@@ -101,8 +98,8 @@ function refreshNewPhotos(){
 function getName(data){
     data =  $('<div/>',{'html': data.responseText}).text();
     data = JSON.parse(data);
-    $('.photo-layer_usernameData_name p').text(data.items[1].caption.from.full_name);
-    $('.photo-layer_usernameData_image img').attr('src', data.items[1].caption.from.profile_picture);
+    $('.photo-layer_usernameData_name p').text(data.items[5].caption.from.full_name);
+    $('.photo-layer_usernameData_image img').attr('src', data.items[5].caption.from.profile_picture);
 };
 
 
@@ -141,6 +138,7 @@ function ParseAnswer(data) {
     $('.button').unbind('click').click(function(){
         data.more_available == true ? Refresh(lastItem) : $(this).text('No photos!').addClass('shake'); 
     });
+    modalShow();
     hover();
 
 };
@@ -173,7 +171,7 @@ function refreshNew(data) {
     hover();
 };
 
-function modalShow(data){
+function modalShow(){
      $('.photo_info').click( function(event){ 
          event.preventDefault(); 
          $('.overlay').fadeIn(400, 
@@ -185,12 +183,10 @@ function modalShow(data){
          });
          if($(this).parent().hasClass('video')){
              var videoSrc = $(this).parent('.photos-container_row_link').find('img').attr('data-link');
-             $('<video><source></source></video').attr('controls', '').appendTo('.modal_form').find('source').
-             attr({'src': videoSrc, 'type': 'video/mp4'});
-             $('video')[0].load();
+             $('.modal_form source').attr({'src': videoSrc}).parent().removeClass('visible_v');
+             $('.modal_form video')[0].load();
 
          }else{
-             console.log(1);
              $('.modal_form img').attr('src', $(this).parent().find('img').attr('data-link'));
          }     
      });
@@ -204,7 +200,9 @@ function modalShow(data){
                  }
              );
         $('.modal_form img').attr('src', '');
-         $('.modal_form video').detach();
+        $('.modal_form source').attr('src', '').parent().addClass('visible_v');
+        $('.modal_form video')[0].load();
+        
 
  });
 

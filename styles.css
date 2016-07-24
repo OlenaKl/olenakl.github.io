@@ -324,3 +324,7 @@ footer {
     color: #fff;
     text-decoration: none;
 }
+
+.visible_v{
+    display: none;
+}
