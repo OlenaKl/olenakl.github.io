@@ -15,13 +15,13 @@ body, html{
 }
 
 .first-form_background{
-    width: 100%;
+    width: 110%;
     min-height: 100%;
     position: absolute;
     background: #f3f3f3;
 }
 
-.first-form form{
+.form{
     position: absolute;
     z-index: 2;
     width: 450px;
@@ -32,6 +32,7 @@ body, html{
     margin-left: -200px;
     background: #fff
 }
+
 
 
 .first-form input{
@@ -85,9 +86,7 @@ body, html{
     top: 6px;
 }
 
-.first-form{
-    display:none;
-}
+
 
 .first-form_p{
     font-size: 20px;
@@ -136,48 +135,21 @@ body, html{
     margin: 30px auto 0;
 }
 
-.photos-container_row{
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-
-    -webkit-box-orient: horizontal;
-    -moz-box-orient: horizontal;
-    box-orient: horizontal;
-    flex-direction: row;
-
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    box-pack: center;
-    justify-content: center;
-
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    box-align: center;
-    align-items: center;
-}
 
 
 .photos-container_row_link{
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    box-flex: 1;
-    -webkit-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 10px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    box-sizing: content-box;
+    display: inline-block;
+    width: 23%;
+    height: 100%;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
 }
 
 
-.photos-container_item img{
+.photos-container_row_link img, video{
     margin: auto;
     width: 100%;
-    max-height:100%
 }
 
 footer {
@@ -206,4 +178,149 @@ footer {
     .photo-layer_usernameData_image{
         margin: 50px auto 0;
     }
+}
+
+.button{
+    margin: 37px auto;
+    width: 120px;
+    height: 120px;
+    border: 6px solid #f3f3f3;
+    border-radius: 70px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 45px 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #293788;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.animated{
+    -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes shake {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+  }
+}
+
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
+}
+
+.button:hover{
+    background: #f3f3f3;
+    transform: scale(1.1);
+}
+.no_data{
+    display: none;
+}
+
+.video{
+    position: relative;
+}
+.video:before{
+    content: "";
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    background: url('images/icon.png');
+    left: 50%;
+    margin-left: -24px;
+    top: 50%;
+    margin-top: -24px;
+}
+
+.photo-layer_usernameData_image img{
+    border-radius: 85px;
+}
+
+.photo_info{
+    top: 4px;
+    width: 96%;
+    position: absolute;
+    height: 95%;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 46%;
+    font-weight: 700;
+    box-sizing: border-box;
+    display: none; 
+    background: #fff url('images/like.png') no-repeat 50% 39%;
+    opacity: 0.6;
+}
+
+.modal_form{
+    height: auto;
+    background: #fff;
+    color: #333;
+    position: absolute;
+    margin-bottom: 100px;
+    width: 400px;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: 50px;
+    overflow: auto; 
+    display: none;
+    opacity: 0;
+    z-index: 14;
+}
+
+.modal_form img{
+    width: 400px;
+}
+
+.overlay{
+    z-index: 13;
+    position: fixed;
+    background-color: rgba(0,0,0,.75);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+}
+
+.look_more{
+    display: block;
+    text-align: center;
+    margin-top: 60px;
+    color: #fff;
+    text-decoration: none;
 }

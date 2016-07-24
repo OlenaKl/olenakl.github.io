@@ -5,19 +5,22 @@
     <title>Instagram page</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
     <script src="script.js"></script>
+
     <link href="styles.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     <section id="container">
         <main>
             <section class="first-form">
                 <div class="first-form_background"></div>
-                <form action="POST" method="get">
+                <div class="form">
                     <p class="first-form_p">ENTER INSTAGRAM ACCOUNT</p>
-                    <input type="text" name="name" placeholder="Enter instagram account">
-                    <button type="submit" class="btn btn-2c">Submit</button>
-                </form>
+                    <input type="text" name="name" class="instagram_name" placeholder="Enter instagram account">
+                    <button class="btn btn-2c">Submit</button>
+                </div>
             </section>
             <section class="photo-layer">
                 <div class="photo-layer_usernameData">
@@ -25,41 +28,33 @@
                         <img src="">
                     </div>
                     <div class="photo-layer_usernameData_name">
-                        <p>Justin Bieber</p>
+                        <p></p>
                     </div>
                     <p class="photo-layer_usernameData_description">Instagram account</p>
+                    <a class="look_more" href="javascript:;">Want to see more?</a>
                 </div>
             </section>
             <section class="photos">
                 <article class="photos-container">
                     <div class="photos-container_holder">
-                        <div class="photos-container_row">
-                            <a href="" class="photos-container_row_link">
-                                <div class="photos-container_item">
-                                    <img class="_icyx7" src="https://scontent-frt3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13704098_1297400783622261_228085043_n.jpg?ig_cache_key=MTI5NzU3ODM5NDc2MjMxNDQ1NA%3D%3D.2">
-                                </div>
-                            </a>
-                            <a href="" class="photos-container_row_link">
-                                <div class="photos-container_item">
-                                    <img class="_icyx7" src="https://scontent-frt3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13704098_1297400783622261_228085043_n.jpg?ig_cache_key=MTI5NzU3ODM5NDc2MjMxNDQ1NA%3D%3D.2">
-                                </div>
-                            </a>
-                            <a href="" class="photos-container_row_link">
-                                <div class="photos-container_item">
-                                    <img class="_icyx7" src="https://scontent-frt3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13704098_1297400783622261_228085043_n.jpg?ig_cache_key=MTI5NzU3ODM5NDc2MjMxNDQ1NA%3D%3D.2">
-                                </div>
-                            </a>
-                        </div>
+                        
                     </div>
                 </article>
-            </section>
-            <section class="loader">
+
 
             </section>
+            <section class="loader">
+            <div class="button animated">
+                Load more
+            </div>
+            </section>
+            <section class="overlay"></section>
+            <div class="modal_form">
+                <div class="modal_close"></div>
+                <img src = ''/>
+            </div>
         </main>
-        <footer>
-            by Kulichenko Olena
-        </footer>
+        
     </section>
 </body>
 </html>
