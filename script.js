@@ -171,7 +171,6 @@ function refreshNew(data) {
          $('.photos-container_row_link:nth-of-type(2)').removeAttr('data-id');   
     }
     hover();
-    modalShow()
 };
 
 function modalShow(){
